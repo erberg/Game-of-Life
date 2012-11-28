@@ -5,13 +5,14 @@
 var Loop = {};
 var Board = {};
 Board.elementUnit=4;
-Loop.fps = 25;
+Loop.fps = 100;
 var canvas = document.getElementById('lifeCanvas');
 if (canvas.getContext){var context = canvas.getContext("2d");}
 
 
+
 $(document).ready(function()
-{
+{ 
    canvas.width=$(window).width();
    canvas.height=$(window).height();
    initBoard();
@@ -19,7 +20,7 @@ $(document).ready(function()
    setInterval(Loop.run, 1000 / Loop.fps);
 });
 
-function initBoard()
+function initBoard()                                            //Setup Grid As Array
 {
         var array=[];
         Board.horizontalUnits=canvas.width/Board.elementUnit;
@@ -49,7 +50,7 @@ Loop.draw = function() {
                     //g=Math.floor((Math.random()*255));
                     //b=Math.floor((Math.random()*255));
                     //context.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
-                    context.fillRect (x*Board.elementUnit, y*Board.elementUnit , Board.elementUnit, Board.elementUnit);
+                    context.fillRect(x*Board.elementUnit, y*Board.elementUnit , Board.elementUnit, Board.elementUnit);
                     }
                 }
             
@@ -63,11 +64,11 @@ Loop.update = function() {
                 nextgenArray[x]=[];
                 for(y=0;y<=Board.verticalUnits;y++)
                 {
-                        if(x>=1&&y>=1&&y<=(Board.verticalUnits-1)&&x<=(Board.horizontalUnits-1))                  //Calculations run on smaller grid...
+                if(x>=1&&y>=1&&y<=(Board.verticalUnits-1)&&x<=(Board.horizontalUnits-1))        //Calculations run on smaller grid...
                         {
                         sumNeighbors=0;
 
-                        sumNeighbors+=Board.array[x+1][y];                                      //So that these dont overflow
+                        sumNeighbors+=Board.array[x+1][y];                                      //...so that x++, y++, etc. dont attempt to reach outside array
                         sumNeighbors+=Board.array[x+1][y-1];
                         sumNeighbors+=Board.array[x+1][y+1];
                         sumNeighbors+=Board.array[x][y-1];

@@ -177,6 +177,10 @@ a:hover {
   text-decoration: underline;
 }
 
+a.active {
+    background-color: #cccccc;
+}
+
 .img-rounded {
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
