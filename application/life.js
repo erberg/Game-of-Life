@@ -4,14 +4,16 @@
  */
 var Loop = {};
 var Board = {};
+Board.elementUnit=4;
 Loop.fps = 25;
-Board.units=150;
 var canvas = document.getElementById('lifeCanvas');
 if (canvas.getContext){var context = canvas.getContext("2d");}
 
 
 $(document).ready(function()
 {
+   canvas.width=$(window).width();
+   canvas.height=$(window).height();
    initBoard();
    Loop.draw();
    setInterval(Loop.run, 1000 / Loop.fps);
@@ -20,12 +22,12 @@ $(document).ready(function()
 function initBoard()
 {
         var array=[];
-        Board.elementwidth=canvas.width/Board.units;
-        Board.elementheight=canvas.height/Board.units;
-        for(x=0;x<=Board.units;x++)         //Padding added for Adjacent Cell Rules
+        Board.horizontalUnits=canvas.width/Board.elementUnit;
+        Board.verticalUnits=canvas.height/Board.elementUnit;
+        for(x=0;x<=Board.horizontalUnits;x++)
             {
             array[x]=[];
-            for(y=0;y<=Board.units;y++)    
+            for(y=0;y<=Board.verticalUnits;y++)    
                 {  
                 array[x][y]=Math.round(Math.random());
                 }
@@ -34,41 +36,38 @@ function initBoard()
 };
 
 Loop.draw = function() {
-
-        for(x=1;x<(Board.units-1);x++)
+        context.fillStyle = 'rgba(0,0,0,.75)';
+        context.fillRect (0, 0, canvas.width-1, canvas.height-1);
+        context.fillStyle = 'rgb(100,100,100)';
+        for(x=1;x<(Board.horizontalUnits-1);x++)
             {
-            for(y=1;y<(Board.units-1);y++)
+            for(y=1;y<(Board.verticalUnits-1);y++)
                 {
                 if(Board.array[x][y]==1)
                     {
-                    r=Math.floor((Math.random()*255));
-                    g=Math.floor((Math.random()*255));
-                    b=Math.floor((Math.random()*255));
-                    context.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
-                    //context.fillStyle = 'rgb(100,100,100)';
-                    context.fillRect (x*Board.elementwidth, y*Board.elementheight , Board.elementwidth, Board.elementheight);
+                    //r=Math.floor((Math.random()*255));
+                    //g=Math.floor((Math.random()*255));
+                    //b=Math.floor((Math.random()*255));
+                    //context.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
+                    context.fillRect (x*Board.elementUnit, y*Board.elementUnit , Board.elementUnit, Board.elementUnit);
                     }
-                 else
-                    {
-                    context.fillStyle = 'rgb(0,0,0)';
-                    context.fillRect (x*Board.elementwidth, y*Board.elementheight , Board.elementwidth, Board.elementheight);}
-                    }
-            
                 }
+            
+            }
 };
 Loop.update = function() {
                 var sumNeighbors;
                 var nextgenArray=[];
-                for(x=0;x<=Board.units;x++)
+                for(x=0;x<=Board.horizontalUnits;x++)
                 {
                 nextgenArray[x]=[];
-                for(y=0;y<=Board.units;y++)
+                for(y=0;y<=Board.verticalUnits;y++)
                 {
-                        if(x>=1&&y>=1&&y<=(Board.units-1)&&x<=(Board.units-1))
+                        if(x>=1&&y>=1&&y<=(Board.verticalUnits-1)&&x<=(Board.horizontalUnits-1))                  //Calculations run on smaller grid...
                         {
                         sumNeighbors=0;
 
-                        sumNeighbors+=Board.array[x+1][y]; 
+                        sumNeighbors+=Board.array[x+1][y];                                      //So that these dont overflow
                         sumNeighbors+=Board.array[x+1][y-1];
                         sumNeighbors+=Board.array[x+1][y+1];
                         sumNeighbors+=Board.array[x][y-1];
@@ -77,7 +76,7 @@ Loop.update = function() {
                         sumNeighbors+=Board.array[x-1][y];
                         sumNeighbors+=Board.array[x-1][y+1];      
                     
-                        if(Board.array[x][y]==1 && sumNeighbors<2){nextgenArray[x][y]=0;}
+                        if(Board.array[x][y]==1 && sumNeighbors<2){nextgenArray[x][y]=0;}       //Conway's Rules
                         else if(Board.array[x][y]==1&&sumNeighbors<=3){nextgenArray[x][y]=1;}
                         else if(Board.array[x][y]==0&&sumNeighbors==3){nextgenArray[x][y]=1;}
                         else if(Board.array[x][y]==1&&sumNeighbors<=8){nextgenArray[x][y]=0;}

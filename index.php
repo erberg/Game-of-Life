@@ -9,12 +9,8 @@
 
     <!-- Le styles -->
     <link href="/application/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
-    <link href="/application/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+
     <link href="">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -22,6 +18,7 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
+
     <link rel="shortcut icon" href="/application/bootstrap/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/application/bootstrap/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/application/bootstrap/ico/apple-touch-icon-114-precomposed.png">
@@ -29,7 +26,7 @@
     <link rel="apple-touch-icon-precomposed" href="/application/bootstrap/ico/apple-touch-icon-57-precomposed.png">
   </head>
 
-  <body>
+  <body style="overflow:hidden;width:100%;height:100%;background-color:black;">
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -51,11 +48,9 @@
       </div>
     </div>
 
-    <div class="container">
-        
-    <canvas id="lifeCanvas" width="800px" height="800px"></canvas> 
-    <div class="appendme"> </div>
-    </div> <!-- /container -->
+   
+
+    <canvas id="lifeCanvas"></canvas> 
 
     <!-- Le javascript
     ================================================== -->
