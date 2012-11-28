@@ -4,20 +4,19 @@
  */
 var Loop = {};
 var Board = {};
-Board.elementUnit=4;
-Loop.fps = 100;
+Board.elementUnit=3;
+Loop.fps = 64;
 var canvas = document.getElementById('lifeCanvas');
 if (canvas.getContext){var context = canvas.getContext("2d");}
 
-
-
 $(document).ready(function()
 { 
+   $('.play').hide();
    canvas.width=$(window).width();
    canvas.height=$(window).height();
    initBoard();
    Loop.draw();
-   setInterval(Loop.run, 1000 / Loop.fps);
+   Loop.intervalId=setInterval(Loop.run, 1000 / Loop.fps);
 });
 
 function initBoard()                                            //Setup Grid As Array
@@ -96,4 +95,23 @@ Loop.run = function() {
   Loop.draw();
 };
 
+$(function(){$('.gpslink').click(function(){
+        $('.gpslink').each(function(){$(this).removeClass("active");});
+        Loop.fps=$(this).text(); 
+        $(this).addClass("active");
+        clearInterval(Loop.intervalId);
+        Loop.intervalId=setInterval(Loop.run, 1000 / Loop.fps);
+        });});
+    
+ $(function(){$('.pause').click(function(){
+        $(this).hide();
+        $('.play').show();
+        clearInterval(Loop.intervalId);
+        });});   
+    
+ $(function(){$('.play').click(function(){
+        $(this).hide();
+        $('.pause').show(); 
+        Loop.intervalId=setInterval(Loop.run, 1000 / Loop.fps);
+        });}); 
 

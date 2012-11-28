@@ -36,17 +36,17 @@
           <a class="brand" href="#">Conway's Game of Life</a>
           <div class="nav-collapse collapse">
           <ul class="nav">
-              <li class="dropdown" id="menu-fps">
-                        <a href="#menu-fps" class="dropdown-toggle" data-toggle="dropdown">Generations Per Second<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="1">1</a></li>
-                          <li><a href="2">2</a></li>
-                          <li><a href="4">4</a></li>
-                          <li><a href="8">8</a></li>
-                          <li><a href="16">16</a></li>
-                          <li><a href="32">32</a></li>
-                          <li><a href="64">64</a></li>
-                          <li><a href="128">128</a></li>
+              <li class="dropdown" id="menu-gps">
+                        <a href="#menu-gps" class="dropdown-toggle" data-toggle="dropdown">Generations Per Second<b class="caret"></b></a>
+                        <ul class="dropdown-menu gps">
+                          <li><a href="#" class="gpslink">1</a></li>
+                          <li><a href="#" class="gpslink">2</a></li>
+                          <li><a href="#" class="gpslink">4</a></li>
+                          <li><a href="#" class="gpslink">8</a></li>
+                          <li><a href="#" class="gpslink">16</a></li>
+                          <li><a href="#" class="gpslink">32</a></li>
+                          <li><a href="#" class="gpslink active">64</a></li>
+                          <li><a href="#" class="gpslink">128</a></li>
                         </ul>
               </li>
               <li class="dropdown" id="menu-patterns">
@@ -60,18 +60,27 @@
                         <ul class="dropdown-menu">
                            <li class="dropdown-submenu">
                            <a tabindex="-1" href="#">Fade Between Generations</a>
-                           <ul class="dropdown-menu">
+                           <ul class="dropdown-menu speed">
                            <li><a href="128" class="active">None</a></li>
                            <li><a href="128">Fast</a></li>
                            <li><a href="128">Medium</a></li>
                            <li><a href="128">Slow</a></li>
                            </ul>
                            </li>
-                          <li><a href="2">Lite Brite</a></li>
+                           <li class="dropdown-submenu">
+                           <a tabindex="-1" href="#">Color Schemes</a>
+                           <ul class="dropdown-menu speed">
+                           <li><a href="128" class="active">Grey</a></li>
+                           <li><a href="128">Lite Brite</a></li>
+                           <li><a href="128">Blue</a></li>
+                           <li><a href="128">Red</a></li>
+                           </ul>
+                           </li>
                         </ul>
               </li>
-              <li><a href="Pause">Pause</a></li>
-              <li><a href="index.php">Random Reset</a></li>
+              <li><a href="#" class="pause">Pause</a></li>
+              <li><a href="#" class="play">Play</a></li>
+              <li><a href="index.php">Reset To Random</a></li>
           </ul>
           </div><!--/.nav-collapse -->
           
