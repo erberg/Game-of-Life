@@ -3,6 +3,8 @@
  */
 var Loop = {};
 var Board = {};
+Board.fadespeed = "Fast";
+Board.color='rgb(100,200,200)';
 Board.elementUnit=3;
 Loop.fps = 64;
 var canvas = document.getElementById('lifeCanvas');
@@ -20,8 +22,6 @@ $(document).ready(function()
 
 function initBoard()                                            //Setup Grid As Array
 {
-        Board.fadespeed = "Fast";
-        Board.color='rgb(100,200,200)';
         var array=[];
         Board.horizontalUnits=canvas.width/Board.elementUnit;
         Board.verticalUnits=canvas.height/Board.elementUnit;
