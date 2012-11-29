@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Conway's Game of Life - Web Application by Eric R. Berg</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Conway's Game of Life</a>
+          <a class="brand" href="#">Game of Life</a>
           <div class="nav-collapse collapse">
           <ul class="nav">
               <li class="dropdown" id="menu-gps">
@@ -49,38 +49,34 @@
                           <li><a href="#" class="gpslink">128</a></li>
                         </ul>
               </li>
-              <li class="dropdown" id="menu-patterns">
-                        <a href="#menu-patterns" class="dropdown-toggle" data-toggle="dropdown">Known Patterns<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="1">1</a></li>
-                        </ul>
-              </li>
               <li class="dropdown" id="menu-fun">
                         <a href="#menu-fun" class="dropdown-toggle" data-toggle="dropdown">Fun Stuff<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                            <li class="dropdown-submenu">
                            <a tabindex="-1" href="#">Fade Between Generations</a>
-                           <ul class="dropdown-menu speed">
-                           <li><a href="128" class="active">None</a></li>
-                           <li><a href="128">Fast</a></li>
-                           <li><a href="128">Medium</a></li>
-                           <li><a href="128">Slow</a></li>
+                           <ul class="dropdown-menu">
+                           <li><a href="#" class="fadespeed">None</a></li>
+                           <li><a href="#" class="fadespeed active">Fast</a></li>
+                           <li><a href="#" class="fadespeed">Medium</a></li>
+                           <li><a href="#" class="fadespeed">Slow</a></li>
+                           <li><a href="#" class="fadespeed">Snail</a></li>
                            </ul>
                            </li>
                            <li class="dropdown-submenu">
                            <a tabindex="-1" href="#">Color Schemes</a>
-                           <ul class="dropdown-menu speed">
-                           <li><a href="128" class="active">Grey</a></li>
-                           <li><a href="128">Lite Brite</a></li>
-                           <li><a href="128">Blue</a></li>
-                           <li><a href="128">Red</a></li>
+                           <ul class="dropdown-menu colors">
+                           <li><a href="#" class="color active" name="rgb(100,200,200)">Mossy</a></li>
+                           <li><a href="#" class="color" name="rgb(150,50,50)">Red</a></li>
+                           <li><a href="#" class="color" name="rgb(50,150,50)">Green</a></li>
+                           <li><a href="#" class="color" name="rgb(0,100,200)">Blue</a></li>
+                           <li><a href="#" class="color" name="Lite Brite">Lite Brite</a></li>
                            </ul>
                            </li>
                         </ul>
               </li>
               <li><a href="#" class="pause">Pause</a></li>
               <li><a href="#" class="play">Play</a></li>
-              <li><a href="index.php">Reset To Random</a></li>
+              <li><a href="#" class="repopulate">Repopulate</a></li>
           </ul>
           </div><!--/.nav-collapse -->
           
@@ -90,7 +86,7 @@
     <script>$(function(){$('.dropdown-toggle').dropdown();}); </script>
 
    
-
+    <div class="generation" style="position: absolute;left: 10px;bottom:10px;color:white;background-color:black;"></div>
     <canvas id="lifeCanvas"></canvas> 
 
     <!-- Le javascript
