@@ -69,7 +69,7 @@
                            <li><a href="#" class="color" name="rgb(150,50,50)">Red</a></li>
                            <li><a href="#" class="color" name="rgb(50,150,50)">Green</a></li>
                            <li><a href="#" class="color" name="rgb(0,100,200)">Blue</a></li>
-                           <li><a href="#" class="color" name="Lite Brite">Lite Brite</a></li>
+                           <li><a href="#" class="color" name="epilepsy">Epilepsy</a></li>
                            </ul>
                            </li>
                         </ul>

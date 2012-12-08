@@ -42,19 +42,19 @@ Loop.draw = function() {
         Board.displayGeneration();
         Loop.getFade();
         context.fillStyle = Board.color;
-        for(x=1;x<(Board.horizontalUnits-1);x++)
-            {
-            for(y=1;y<(Board.verticalUnits-1);y++)
-                {
-                if(Board.array[x][y]==1)
-                    {
-                    if(Board.color=="Lite Brite")
+        if(Board.color=="epilepsy")
                        {
                         r=Math.floor((Math.random()*255));
                         g=Math.floor((Math.random()*255));
                         b=Math.floor((Math.random()*255));
                         context.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
                        } 
+        for(x=1;x<(Board.horizontalUnits-1);x++)
+            {
+            for(y=1;y<(Board.verticalUnits-1);y++)
+                {
+                if(Board.array[x][y]==1)
+                    {
                     context.fillRect(x*Board.elementUnit, y*Board.elementUnit , Board.elementUnit, Board.elementUnit);
                     }
                 }
